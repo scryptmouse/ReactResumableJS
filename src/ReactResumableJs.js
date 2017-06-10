@@ -25,8 +25,7 @@ export default class ReactResumableJs extends React.Component {
     }
 
     componentDidMount = () => {
-
-        let ResumableField = new Resumablejs({
+        const resumableOptions = Object.assign({ fileParameterName: this.props.fileParameterName }, this.props.otherOptions || {}, {
             target: this.props.service,
             query: this.props.query || {},
             fileType: this.props.filetypes,
@@ -47,10 +46,10 @@ export default class ReactResumableJs extends React.Component {
             headers: this.props.headerObject || {},
             chunkSize: this.props.chunkSize,
             simultaneousUploads: this.props.simultaneousUploads,
-            fileParameterName: this.props.fileParameterName,
             generateUniqueIdentifier: this.props.generateUniqueIdentifier,
-
         });
+
+        let ResumableField = new Resumablejs(resumableOptions);
 
         if (typeof this.props.maxFilesErrorCallback === "function") {
             ResumableField.opts.maxFilesErrorCallback = this.props.maxFilesErrorCallback;

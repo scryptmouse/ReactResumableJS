@@ -44,7 +44,7 @@
     "prop-types": "^15.5.0",
     "react": "^15.0.0",
     "react-dom": "^15.3.0",
-    "resumablejs": "^1.0.2"
+    "resumablejs": "23/resumable.js#v1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.20",
